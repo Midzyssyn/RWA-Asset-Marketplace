@@ -1,0 +1,20 @@
+node_modules/
+cache/
+artifacts/
+coverage/
+coverage.json
+typechain/
+typechain-types/
+
+.env
+.env.local
+
+frontend/node_modules/
+frontend/dist/
+
+.DS_Store
+*.log
+
+# 安全工具本地二进制与语料（勿提交大文件）
+tools/
+echidna-corpus/

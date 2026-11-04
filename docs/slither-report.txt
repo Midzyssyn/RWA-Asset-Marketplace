@@ -1,0 +1,18 @@
+﻿# Slither 文本摘要（修复 setVault 零地址校验之后）
+
+命令：
+  slither contracts/ --solc-remaps "@openzeppelin/=node_modules/@openzeppelin/" --filter-paths "node_modules|echidna" --exclude-dependencies
+
+结果：
+  contracts/ analyzed (... detectors), 2 result(s) found
+
+Detector: incorrect-equality (Medium)
+  - RWAVault.claimYield: amount == 0
+  - RWAVault.pendingYield: bal == 0 || delta == 0
+  结论：误报（见 docs/Slither扫描说明.md）
+
+High: 0
+Low missing-zero-check on setVault: 已修（require vault_ != 0），本摘要中不再出现
+
+机器可读：docs/slither-raw.json
+逐条说明：docs/Slither扫描说明.md

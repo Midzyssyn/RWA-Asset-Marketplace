@@ -1,0 +1,172 @@
+export const ProjectRegistryAbi = [
+  {
+    inputs: [{ internalType: "address", name: "initialOwner", type: "address" }],
+    stateMutability: "nonpayable",
+    type: "constructor",
+  },
+  {
+    inputs: [],
+    name: "EmptyName",
+    type: "error",
+  },
+  {
+    inputs: [{ internalType: "uint256", name: "id", type: "uint256" }],
+    name: "InvalidId",
+    type: "error",
+  },
+  {
+    inputs: [{ internalType: "address", name: "owner", type: "address" }],
+    name: "OwnableInvalidOwner",
+    type: "error",
+  },
+  {
+    inputs: [{ internalType: "address", name: "account", type: "address" }],
+    name: "OwnableUnauthorizedAccount",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "ZeroAddress",
+    type: "error",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      { indexed: true, internalType: "uint256", name: "id", type: "uint256" },
+      { indexed: false, internalType: "string", name: "name", type: "string" },
+      {
+        indexed: false,
+        internalType: "string",
+        name: "companyName",
+        type: "string",
+      },
+      { indexed: false, internalType: "address", name: "share", type: "address" },
+      { indexed: false, internalType: "address", name: "vault", type: "address" },
+      { indexed: false, internalType: "bool", name: "listed", type: "bool" },
+    ],
+    name: "ProjectRegistered",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      { indexed: true, internalType: "uint256", name: "id", type: "uint256" },
+      { indexed: false, internalType: "bool", name: "listed", type: "bool" },
+    ],
+    name: "ProjectListedUpdated",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "previousOwner",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "newOwner",
+        type: "address",
+      },
+    ],
+    name: "OwnershipTransferred",
+    type: "event",
+  },
+  {
+    inputs: [{ internalType: "uint256", name: "id", type: "uint256" }],
+    name: "getProject",
+    outputs: [
+      {
+        components: [
+          { internalType: "string", name: "name", type: "string" },
+          { internalType: "string", name: "description", type: "string" },
+          { internalType: "string", name: "companyName", type: "string" },
+          { internalType: "address", name: "share", type: "address" },
+          { internalType: "address", name: "vault", type: "address" },
+          { internalType: "bool", name: "listed", type: "bool" },
+        ],
+        internalType: "struct ProjectRegistry.Project",
+        name: "",
+        type: "tuple",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "listProjects",
+    outputs: [
+      {
+        components: [
+          { internalType: "string", name: "name", type: "string" },
+          { internalType: "string", name: "description", type: "string" },
+          { internalType: "string", name: "companyName", type: "string" },
+          { internalType: "address", name: "share", type: "address" },
+          { internalType: "address", name: "vault", type: "address" },
+          { internalType: "bool", name: "listed", type: "bool" },
+        ],
+        internalType: "struct ProjectRegistry.Project[]",
+        name: "",
+        type: "tuple[]",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "owner",
+    outputs: [{ internalType: "address", name: "", type: "address" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "projectCount",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "string", name: "name", type: "string" },
+      { internalType: "string", name: "description", type: "string" },
+      { internalType: "string", name: "companyName", type: "string" },
+      { internalType: "address", name: "share", type: "address" },
+      { internalType: "address", name: "vault", type: "address" },
+      { internalType: "bool", name: "listed", type: "bool" },
+    ],
+    name: "registerProject",
+    outputs: [{ internalType: "uint256", name: "id", type: "uint256" }],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "renounceOwnership",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "uint256", name: "id", type: "uint256" },
+      { internalType: "bool", name: "listed", type: "bool" },
+    ],
+    name: "setListed",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "address", name: "newOwner", type: "address" }],
+    name: "transferOwnership",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+] as const;

@@ -1,0 +1,16 @@
+﻿node_modules/
+cache/
+artifacts/
+coverage/
+coverage.json
+typechain/
+typechain-types/
+
+.env
+.env.local
+
+frontend/node_modules/
+frontend/dist/
+
+.DS_Store
+*.log

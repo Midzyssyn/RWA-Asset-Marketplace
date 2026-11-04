@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap");
+
+:root {
+  --ink: #14212b;
+  --ink-soft: #3d4f5f;
+  --mist: #eef3f1;
+  --paper: #f7faf8;
+  --surface: #ffffff;
+  --teal: #0f6b63;
+  --teal-deep: #0a4f4a;
+  --teal-soft: #d8efe9;
+  --copper: #b45309;
+  --copper-soft: #fef3c7;
+  --rose: #9f1239;
+  --rose-soft: #ffe4e6;
+  --slate-line: #d5e0db;
+  --shadow: 0 12px 40px rgba(20, 33, 43, 0.08);
+  --radius: 14px;
+  --font-display: "Syne", "Segoe UI", sans-serif;
+  --font-body: "Figtree", "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 500px at 10% -10%, #d9ebe6 0%, transparent 55%),
+    radial-gradient(900px 420px at 100% 0%, #e8efe8 0%, transparent 50%),
+    linear-gradient(180deg, #f3f7f5 0%, var(--mist) 40%, #e9efec 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+code {
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 0.9em;
+  background: rgba(15, 107, 99, 0.08);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
