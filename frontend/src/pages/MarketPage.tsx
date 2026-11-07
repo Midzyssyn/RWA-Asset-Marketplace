@@ -38,12 +38,13 @@ export function MarketPage() {
   return (
     <section className="page market-page">
       <header className="market-hero">
-        <p className="eyebrow">多公司 RWA · 份额认购</p>
-        <h1>资产市场</h1>
+        <p className="eyebrow">多公司 · 资产收益权</p>
+        <p className="brand-lockup" aria-hidden="true">
+          <span>RWA 资产市场</span>
+        </p>
+        <h1 className="visually-aside">RWA 资产市场</h1>
         <p className="lede">
-          浏览各公司资产收益权项目。卡片上的两枚徽章互不替代：
-          <strong>已上架 / 已下架</strong>只表示市场可见性；
-          <strong>柜台开放 / 柜台暂停</strong>才决定能否申购赎回。
+          按净值认购份额。两枚徽章分开看：上架只管可见性，柜台才管申购赎回。
         </p>
         {!demo.showInvestor && demo.role !== "all" && (
           <p className="notice">

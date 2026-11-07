@@ -12,6 +12,7 @@ export function Header() {
     <header className="header-wrap">
       <div className="header">
         <NavLink to="/" className="logo" end>
+          <span className="logo-mark" aria-hidden />
           RWA 资产市场
         </NavLink>
         <nav className="nav">
