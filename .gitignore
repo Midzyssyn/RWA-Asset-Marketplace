@@ -1,0 +1,32 @@
+node_modules/
+cache/
+artifacts/
+coverage/
+coverage.json
+typechain/
+typechain-types/
+
+.env
+.env.local
+
+frontend/node_modules/
+frontend/dist/
+
+.DS_Store
+*.log
+_hh-node.*
+_*.log
+
+# 本地备份 / 重复快照 / 旧脚手架（勿提交）
+code.zip
+code-only/
+legacy/
+crytic-export/
+
+# 安全工具本地二进制与语料（勿提交大文件）
+tools/
+echidna-corpus/
+
+frontend/.env
+frontend/.env.local
+

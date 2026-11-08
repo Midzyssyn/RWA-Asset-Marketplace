@@ -1,0 +1,55 @@
+# npm test 完整输出归档
+# 时间：2026-11-03
+# 命令：仓库根目录 npm test（Hardhat）
+# 结果：34 passing / 0 failing
+
+> rwa-share-vault@0.1.0 test
+> hardhat test
+
+◇ injected env (0) from .env
+
+
+  MockUSDC
+    √ decimals 为 6
+    √ 管理员能给任意地址 mint
+    √ 非管理员不能 mint
+    √ 无转让限制：任何人可转已持有的 MockUSDC
+
+  ProjectRegistry
+    √ register + list + get：可登记多个公司项目
+    √ setListed 可下架；非 owner 无法登记
+    √ 项目 A 认购不影响项目 B 份额与金库资金
+    √ 下架后建议关闭新认购：不能 deposit，未 pause 可 redeem
+
+  RWAShare
+    √ decimals 为 6
+    √ 未白名单 transfer 失败
+    √ 未白名单 transferFrom 失败
+    √ 双方都在白名单可以转
+    √ 增删白名单发出 WhitelistUpdated
+    √ 没有 MINTER_ROLE 的人 mint 份额失败
+    √ setVault 拒绝零地址；非 Admin 不能 setVault
+
+  RWAVault
+    √ 初始 nav 为 1e6
+    √ nav=1e6 时白名单用户 approve 后 deposit：份额约等于 assets，金库 USDC 增加
+    √ 未 approve 时 deposit 失败
+    √ 未白名单时 deposit 失败
+    √ redeem 后份额销毁、按当前 nav 退回 USDC
+    √ NAV_MANAGER setNAV 成功并发 NavUpdated；非 NAV 角色调用失败
+    √ setNAV(+20%) 后再 deposit：份额按新 nav 换算；改价后赎回额随之变化
+    √ 先按 nav=1e6 申购，抬价后再赎回：同份额兑出更多 USDC（演示喂价影响）
+    √ 超幅度 setNAV 失败；抬价偿付不足时 setNAV 失败
+    √ 非 Admin 不能 pause / unpause / distributeYield；pause/派息与 NAV 角色分钥
+    √ 未白名单不能 claimYield；零金额 claim 失败
+    √ 关闭新认购后不能 deposit，未 pause 时可 redeem / claimYield；pause 后主路径失败
+    √ 无派息时偿付：Vault USDC >= totalSupply * nav / 1e6；nav=1e6 时相等
+    √ setNAV(0) 失败
+    √ 两人各 50% 份额，注入 100 USDC 利息，每人领约 50（允许 1 单位误差）
+    √ 无人持仓时 distributeYield 失败
+    √ A 把份额转给 B 前双方先结息：未领利息不丢、不带走
+    √ 注入并部分领取后：金库 USDC >= 按 nav 计价本金 + 尚未领走的利息
+    √ 改 nav 后派息会计仍独立正确（改价不等于自动发息）
+
+
+  34 passing (4s)

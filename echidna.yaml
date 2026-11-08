@@ -1,0 +1,14 @@
+# Echidna 配置：RWA 金库不变量
+# 运行命令见 project-log/phase-06-security/log.md
+
+testMode: property
+testLimit: 50000
+seqLen: 50
+coverage: true
+corpusDir: "echidna-corpus"
+cryticArgs:
+  - "--solc-remaps"
+  - "@openzeppelin/=node_modules/@openzeppelin/"
+# 属性：合约内 echidna_* 返回 bool 的 view 函数
+# fuzz 会随机调用同合约其他 public 非 view 入口
+quiet: false
